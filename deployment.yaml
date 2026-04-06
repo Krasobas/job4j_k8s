@@ -16,9 +16,26 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: krsobas/job4j_devops:latest
+          image: krsobas/job4j_devops:60
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: calculator
+                  key: database_url
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: calculator
+                  key: database_username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: calculator
+                  key: database_password
           resources:
             requests:
               memory: "256Mi"
