@@ -48,7 +48,7 @@ ${emoji} *${env.JOB_NAME}* — #${currentBuild.number}
         }
         failure {
             sh 'kubectl rollout undo deployment/job4j-devops'
-            echo "Deployment failed — rolled back!"
+            echo "Deployment failed — rolled back!!!"
         }
     }
 }
