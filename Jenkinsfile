@@ -7,16 +7,18 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Kubernetes Deploy') {
             steps {
                 script {
                     sh 'kubectl cluster-info'
-
                     sh 'kubectl apply -f k8s/'
-
-                    sh 'kubectl rollout restart deployment/job4j-devops'
-
-                    sh 'kubectl rollout status deployment/job4j-devops'
+                    sh 'kubectl rollout status deployment/job4j-devops --timeout=120s'
                 }
             }
         }
@@ -45,7 +47,8 @@ ${emoji} *${env.JOB_NAME}* — #${currentBuild.number}
             echo "Successfully deployed to Kubernetes!"
         }
         failure {
-            echo "Deployment failed! Check kubectl logs."
+            sh 'kubectl rollout undo deployment/job4j-devops'
+            echo "Deployment failed — rolled back!"
         }
     }
 }
