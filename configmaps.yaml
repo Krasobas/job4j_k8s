@@ -4,5 +4,3 @@ metadata:
   name: calculator
 data:
   database_url: jdbc:postgresql://host.minikube.internal:5432/postgres
-  database_username: postgres
-  database_password: password
