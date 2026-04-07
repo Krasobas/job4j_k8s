@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: calculator
 data:
-  database_url: jdbc:postgresql://host.minikube.internal:5432/postgres
+  database_url: jdbc:postgresql://host-gateway:5432/job4j_devops
