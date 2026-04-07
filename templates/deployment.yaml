@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: { { .Values.containers.image | quote } }
+          image: {{ .Values.containers.image | quote }}
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
