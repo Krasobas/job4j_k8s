@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: calculator
 data:
-  database_url: jdbc:postgresql://host-gateway:5432/job4j_devops
+  database_url: jdbc:postgresql://172.17.0.1:5432/job4j_devops
