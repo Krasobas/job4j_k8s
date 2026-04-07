@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Cleanup') {
+        stage('Kubernetes Cleanup') {
             steps {
                 script {
                     sh '''
