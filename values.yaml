@@ -4,4 +4,4 @@ secret:
 config:
   database_url: "jdbc:postgresql://172.17.0.1:5432/job4j_devops"
 containers:
-  image: "parsentev/job4j_devops:v.1.0.1"
+  image: "docker.nexus.krasobas.com/job4j_devops:latest"
